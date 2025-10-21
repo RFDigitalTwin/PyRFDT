@@ -18,7 +18,7 @@ class Editor:
         self.app = FastAPI()
 
         self.repo_url = "https://github.com/RFDigitalTwin/LocalEditor.git"
-        self.base_dir = Path.cwd() / ".rfdt" / "Editor"
+        self.base_dir = Path.cwd() / ".rfdt" / "LocalEditor"
         self._update_frontend()
 
         self.app.mount("/", StaticFiles(directory=str(self.base_dir), html=True), name="static")
