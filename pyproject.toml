@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "pyrfdt"
 version = "0.0.1"
 description = "RF Digital Twin"
-authors = [{ name = "Anonymous", email = "Anonymous" }]
+authors = [{ name = "Anonymous", email = "anon@example.com" }]
 dependencies = [
     "numpy",
     "torch"
