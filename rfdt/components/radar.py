@@ -9,7 +9,7 @@ import io
 import base64
 from .base import Component, component, field, button
 
-import invertwin as rfdt
+import rfdt.rt as rt
 from drjit.cuda.ad import Int as IntD, Float as FloatD, Matrix4f as Matrix4fD, Array3f as Vector3fD, Array2f as Vector2fD
 from drjit.cuda import Float as FloatC, Matrix4f as Matrix4fC, Array3f as Vector3fC, Array3i as Vector3iC
 from drjit.cuda import PCG32 as PCG32C, UInt64 as UInt64C
@@ -117,7 +117,7 @@ class RadarComponent(Component):
             return "No Transform component"
 
         # ===== Scene Setup =====
-        sc = rfdt.Scene()
+        sc = rt.Scene()
         sc.opts.spp = 32
         sc.opts.sppe = 0
         sc.opts.sppse = 0
@@ -129,14 +129,14 @@ class RadarComponent(Component):
         dr.enable_grad(P)
 
         # Create integrator and radar processor
-        integrator = rfdt.DemoIntegrator()
+        integrator = rt.DemoIntegrator()
         radar = SimpleRadar()
 
         # Add materials
-        sc.add_material(rfdt.DiffuseMaterial([0.9, 0.9, 0.9]), "basic")
+        sc.add_material(rt.DiffuseMaterial([0.9, 0.9, 0.9]), "basic")
 
         # ===== Setup Radar Sensor =====
-        sensor = rfdt.Radar(60, 0.000001, 10000000.)
+        sensor = rt.Radar(60, 0.000001, 10000000.)
 
         # Create transformation matrix with parametric displacement in X direction
         base_transform = Matrix4fD(transform.get_transformation_matrix().numpy())
@@ -176,7 +176,7 @@ class RadarComponent(Component):
                 continue
 
             # Create and load mesh
-            rfdt_mesh = rfdt.Mesh()
+            rfdt_mesh = rt.Mesh()
             matrix = Matrix4fC(obj_transform.get_transformation_matrix().numpy())
 
             if mesh_comp.vertices is not None and len(mesh_comp.vertices) > 0:

@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyrfdt"
+name = "rfdt"
 version = "0.0.1"
 description = "RF Digital Twin"
 authors = [{ name = "Anonymous", email = "anon@example.com" }]
@@ -14,4 +14,4 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["pyrfdt*"]
+include = ["rfdt*"]

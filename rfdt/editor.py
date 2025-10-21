@@ -17,8 +17,8 @@ class Editor:
         self.verbose = verbose
         self.app = FastAPI()
 
-        self.repo_url = "https://github.com/RFDigitalTwin/LocalEditor.git"
-        self.base_dir = Path.cwd() / ".rfdt" / "LocalEditor"
+        self.repo_url = "https://github.com/RFDigitalTwin/Editor.git"
+        self.base_dir = Path.cwd() / ".rfdt" / "Editor"
         self._update_frontend()
 
         self.app.mount("/", StaticFiles(directory=str(self.base_dir), html=True), name="static")
@@ -85,7 +85,7 @@ class Editor:
             )
             self.thread.start()
             if self.verbose:
-                print(f"Editor server started at http://{self.host}:{self.port}/Editor")
+                print(f"Editor server started at http://{self.host}:{self.port}")
 
 
     def stop(self):
