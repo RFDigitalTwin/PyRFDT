@@ -6,11 +6,11 @@ build-backend = "setuptools.build_meta"
 name = "pyrfdt"
 version = "0.0.1"
 description = "RF Digital Twin"
-authors = [{ name = "Anonymous", email = "anon@example.com" }]
+authors = [{ name = "Anonymous", email = "Anonymous" }]
 dependencies = [
     "numpy",
     "torch"
 ]
 
 [tool.setuptools.packages.find]
-where = ["pyrfdt"]
+where = ["pyrfdt*"]
